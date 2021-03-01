@@ -2,7 +2,7 @@
 \section{Raw Radar Data Processing}
 To avoid processing of clutter, the raw radar data is filtered based on the calculated velocity of the reflected target. Furthermore the data used for creation of the maps is limited to when the vehicle is moving at speeds higher than 0.0 m/s as noise recorded at standstill was more prone to contain noise, confirming the statement made in \cite{narula_automotive-radar-based_2020}.
 \\\\
-It has also been suggested that automotive grade radar detections are more reliable when the vehicle is moving \cite{narula_automotive-radar-based_2020}, which suggests that data should be used only when the vehicle is moving above a certain longitudinal speed. The value of this speed is not shown. 
+It has also been suggested that automotive grade radar detections are more reliable when the vehicle is moving \cite{narula_automotive-radar-based_2020}.
 \\\\
 In order to only look at stationary targets, moving targets can be filtered out by calculating the expected stationary velocity of a measurement according to the following equation \cite{ward_vehicle_2016},\cite{yoneda_vehicle_2018}.  
 \begin{equation}
@@ -11,10 +11,12 @@ V_{i}\left(v_t,\omega_{t}, \phi_{i}\right)=&-\left(v_{t}-\omega_{t} y_{s}\right)
 &-\left(\omega_{t} x_{s}\right) \sin \left(\phi_{i}+\alpha_{s}\right)
 \end{aligned}
 \end{equation}
-Where $x_s,y_s,\alpha_s$ is the 2D mounting position and rotation relative to the base coordinate system, and $v_t,\omega_t$, is the longitudinal velocity and rotational velocity of base at time $t$. The $\phi_i$ corresponds to the incident angles of the radar readings.
+Where $x_s,y_s,\alpha_s$ is the 2D mounting position and rotation relative to the base coordinate system, and $v_t,\omega_t$, is the longitudinal velocity and rotational velocity of base at time $t$. The $\phi_i$ corresponds to the incident angles of the radar readings. To classify a target as stationary its relative absolute speed needs to be below a threshold, determined by radar sensor, and ego speed standard deviations.
 \\\\
 
-\section{Finding The Best Representation of Radar Data For Localization}
+\section{Finding The Best Map Representation}
+A good map representation needs to enable precise, robust, and fast localization. In addition to performance of the algorithm, it also needs to be simple to understand and tune, in order to make it replicable and applicable. The solution must also be general, and work on many different types of data sets.
+
 % Recent research present many options on how to use 2D radar data for map construction, but in the research community there is no consensus on which approach is the best. 
 
 
