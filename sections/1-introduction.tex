@@ -1,0 +1,67 @@
+\chapter{Introduction}
+Robotics is a wide area of research, where innovations are closely tied together with both computer science and electronics. Advancements in data processing and clever algorithms together with progress in terms of sensors and hardware are fused together to enable for e.g. underwater vehicles. Underwater vehicles that explore the depths of the sea, drones that deliver utilities, or automotive robots that aid hospitals with deliverers of laundry. All of these robots have at least one thing in common that they need to do in order to function, and that is to localize themselves. Localization is one of the main tasks autonomous robots want to do reliably to avoid mishaps. Localization is the problem of simply knowing where one is located relative to some reference point; for a robot this involves processing available sensor inputs and readings and from this information computing an estimate of the robot’s position. 
+\\\\
+Today, most instances when outdoor localization needs to be addressed are solved by using \ac{GNSS}. The most commonly known GNSS is the \ac{GPS}, that many of us have in our phones. By using GNSS centimeter precision on position readingsis possible, which is sufficient in most settings under ideal conditions. When the localization conditions are not ideal, for example: indoors, in mountainous areas, or urban areas with tall buildings, situations where the GNSS signal may get deflected or is unable to reach the vehicle. Then an alternative to GNSS localization must be applied.
+\\\\
+Many solutions to address this have been presented in the recent years, using different types of combinations of sensors such as cameras, radar, and laser sensors, only to name a few. Cameras and \ac{LiDAR} are mostly used for \ac{SLAM}, but these sensors are however, susceptible to severe degradation in harsh weather conditions, which puts the safety at risk. Finding a robust alternative in these settings is yet to be done. 
+\\\\
+Automotive radar is a robust sensor that works both on long, and short range. It provides the user with a measurement of range, and velocity at a recorded azimuth and range. Because of its inherent robustness in all types of weather this degree project presents an approach to radar localization.
+\section{Background}
+\label{sec:background}
+% The project will perform work related to robotics and computer sciences fields of work. The project will be carried out mainly within the localization field within robotics, using radar sensor data.
+Robot localization is a very important topic as it is of uttermost essence for autonomous vehicles; without it autonomous vehicle cannot become safe. The main way to perform localization is currently by GNSS. The main problem with GNSS is that its performance is seriously degraded in mountainous areas, and in inner city areas, where the GNSS signals can have a hard time reaching sensors due to deflection. 
+\\\\
+This project aims to investigate an alternative method of localization by matching radar point clouds from a near 360 degree field of view around a vehicle. If successful this method can be used by exploring robots, and autonomous vehicles to explore new types of territories, for example after natural disasters. The company where the degree project will be carried out will use this technology as an robust alternative to GNSS in terms of localization, in order to safely drive an autonomous truck in case of GNSS outage. %and during harsh weather conditions when sensory efficiency of lidars and cameras are degraded. 
+% Present the background for the area. Give the context by explaining the parts that are needed to understand the degree project and thesis. (Still, keep in mind that this is an introductory part, which does not require too detailed description).
+
+% Look at sample table \ref{tab:sample-table-label} for a table sample.
+
+% \input{tables/sample-table}
+
+
+\section{Problem}
+No article has benchmarked the different approaches on how to use 2D radar data for localization and what type of approach is the most optimal one. As 2D radar data is a common format on the readings used in the automotive industry it is relevant to find which approach is the best, given different types of scenarios.
+
+Usually, new methods are evaluated on new radar data sets, instead of evaluating them on data sets that have been used for other methods. This makes it hard to compare the performance of methods with each other. This is because the performance of an algorithm is highly dependent on the scene during which the data set was recorded. Especially due to the fact that there are no types of public data sets that makes it easy to benchmark a new method against others, a comparison of the most recent cutting edge research is called for.
+
+\section{Purpose}
+The purpose with this degree project report is to present a robust radar localization approach that can be used for automotive localization in areas that are frequently visited. 
+
+\section{Goal}
+Use 2D radar data to create a map which is used to match new incoming scans and thereby retrieve a pose measurement. The aim is to get lane level precision on the measurements and sufficiently (more than 1Hz) often.
+\section{Benefits, Ethics and Sustainability}
+The project aims to enable safe and efficient autonomous driving and shipping with electrical trucks in all weathers. Achieving this will enable more sustainable transportation, enabling transportation during more hours of the day, alleviating heavy traffic.
+% Use references!
+\section{Methodology}
+The project will mainly be focusing on comparing previous implementations, and by combining the findings give a suggestion on a robust approach to radar localization based on the following criteria. 
+\begin{itemize}
+    \item (1) Performance in terms of precision and robustness on the localization
+    \item (2) Speed of the algorithms - the solution needs to be fast enough to be run  real-time to localize 
+    \item (3) Simplicity of the model - the less parameters there are to tune the easier it is to use. 
+    \item (4) Ability to integrate other sensors
+\end{itemize}
+% Introduce, theoretically, the methodologies and methods that can be used in a project and, then, select and introduce the methodologies and methods that are used in the degree project. Must be described on the level that is enough to understand the contents of the thesis. 
+
+% Use references!
+
+% Preferably, the philosophical assumptions, research methods, and research approaches are presented here. Write quantitative / qualitative, deductive / inductive / abductive. Start with theory about methods, choose the methods that are used in the thesis and apply. 
+
+
+% Detailed description of these methodologies and methods should be presented in Chapter 3. In chapter 3, the focus could be research strategies, data collection, data analysis, and quality assurance.
+
+
+\section{Stakeholders}
+Present the stakeholders for the degree project.
+\begin{itemize}
+    \item Automotive industry 
+    \item Autonomous industry 
+    \item Localization research community
+\end{itemize}
+\section{Delimitations}
+The implementation aims to provide a reliable backup solution in case GNSS coverage is lost. However, the study will not involve the decision logic on how or when to switch between GNSS and the backup radar localization, which is a nontrivial problem. It will not cover how the retrieved 2D pose measurement is best used in conjunction with filters or similar, which is a procedure that will differ depending on what filter the solution is used with. The integration is however necessary if the data is to be used optimally in an autonomous solution with the aim of localizing. 
+% Explain the delimitations. These are all the things that could affect the study if they were examined and included in the degree project. 
+% Use references!
+
+\section{Outline}
+% In text, describe what is presented in Chapters 2 and forward. Exclude the first chapter and references as well as appendix. 
+Chapter 2 will give a theoretical background to the research field or radar as a sensor, and radar localization. Chapter 3 will describe the methods used to answer the research question. Chapter 4-6 will present the work, results, and discuss the project.
